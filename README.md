@@ -46,8 +46,43 @@ Before you begin, you need:
 - [Remix IDE](https://remix.ethereum.org/)
 - Rabby or MetaMask wallet
 - A small amount of ETH on Base Mainnet for gas fees
+- Optional IPFS upload service such as Pinata or Lighthouse
 - The contract file: `contracts/BaseDeployPractice.sol`
 - The metadata file: `metadata/metadata.json`
+
+## Important: You Do Not Need To Copy This Repository
+
+You do not need to fork, clone, or download this repository to practice deployment.
+
+To practice with Remix:
+
+1. Open `contracts/BaseDeployPractice.sol`
+2. Copy the contract code
+3. Paste it into Remix
+4. Deploy using your own wallet
+
+Each learner deploys a separate contract from their own wallet.
+
+## Important: Base Mainnet ETH
+
+Deploying on Base Mainnet requires real ETH for gas fees.
+
+You need ETH on Base Mainnet.
+
+```text
+ETH on Ethereum Mainnet = not usable for Base gas
+ETH on Base Mainnet     = usable for Base gas
+```
+
+Minting is free in this contract, but deployment and mint transactions still require gas.
+
+## Guild Badge Note
+
+If a Guild badge checks contract deployment, the badge is awarded to the wallet that sends the deployment transaction.
+
+This means you can use this sample contract code and still deploy your own contract with your own wallet.
+
+Each learner can earn their own badge by deploying the contract on Base Mainnet from their own wallet.
 
 ## Project Structure
 
@@ -83,6 +118,24 @@ initialTokenURI
 ```
 
 This is the metadata URL for the NFT.
+
+### What is IPFS?
+
+IPFS is decentralized storage often used for NFT images and metadata.
+
+Basic workflow:
+
+1. Upload the image and `metadata.json` to IPFS.
+2. Receive a CID.
+3. Replace `YOUR_METADATA_FOLDER_CID` with your actual CID.
+
+Example:
+
+```text
+ipfs://bafybeixxxxx/metadata.json
+```
+
+Beginner-friendly IPFS upload tools include Pinata and Lighthouse.
 
 This project includes the NFT image here:
 
@@ -437,6 +490,16 @@ The collection has reached the maximum supply of 100 NFTs. No more NFTs can be m
 - Do not use Hardhat or Foundry.
 - Always check that your wallet is on Base Mainnet before deploying or minting.
 - Deploying to Base Mainnet uses real ETH for gas, even for practice.
+
+## License
+
+Code:
+
+MIT License.
+
+Images / Artwork:
+
+Educational use only unless otherwise stated. Commercial redistribution of artwork is not allowed without permission.
 
 ## Learning Goal
 

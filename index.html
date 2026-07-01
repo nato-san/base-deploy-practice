@@ -15,6 +15,7 @@
         --base: #1457ff;
         --green: #138a61;
         --yellow: #b66a00;
+        --red: #c4362e;
       }
 
       * {
@@ -255,9 +256,49 @@
       .card p,
       .checklist li,
       .note,
+      .notice p,
+      .notice li,
       .accordion-body li {
         color: var(--muted);
         line-height: 1.6;
+      }
+
+      .notice-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .notice {
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-left: 5px solid var(--base);
+        border-radius: 8px;
+        background: var(--paper);
+      }
+
+      .notice.warning-strong {
+        border-left-color: var(--red);
+        background: #fff3f1;
+      }
+
+      .notice.success {
+        border-left-color: var(--green);
+      }
+
+      .notice h3 {
+        margin: 0 0 10px;
+        font-size: 19px;
+      }
+
+      .notice p {
+        margin: 0;
+      }
+
+      .notice ul,
+      .notice ol {
+        margin: 10px 0 0;
+        padding-left: 22px;
       }
 
       .accordion {
@@ -404,6 +445,7 @@
         }
 
         .grid,
+        .notice-grid,
         .checklist {
           grid-template-columns: 1fr;
         }
@@ -418,6 +460,7 @@
           <span>Base Deploy Practice</span>
         </div>
         <nav class="nav" aria-label="Project sections">
+          <a href="#before-start" data-i18n="navBeforeStart">Before start</a>
           <a href="#lessons" data-i18n="navLessons">Lessons</a>
           <a href="#deploy-guide" data-i18n="navDeployGuide">Deploy guide</a>
           <a href="#tools" data-i18n="navTools">Tools</a>
@@ -464,6 +507,46 @@ mint image: Practice NFT
 network: Base Mainnet
 tool: Remix</code></pre>
         </aside>
+      </section>
+
+      <section id="before-start" class="section">
+        <h2 data-i18n="beforeStartTitle">Before You Start</h2>
+        <div class="notice-grid">
+          <article class="notice">
+            <h3 data-i18n="prepTitle">Prepare these tools</h3>
+            <ul>
+              <li data-i18n="prepGithub">GitHub account</li>
+              <li data-i18n="prepRemix">Remix IDE</li>
+              <li data-i18n="prepWallet">Rabby or MetaMask wallet</li>
+              <li data-i18n="prepEth">ETH on Base Mainnet</li>
+              <li data-i18n="prepIpfs">Optional IPFS upload service such as Pinata or Lighthouse</li>
+            </ul>
+          </article>
+          <article class="notice success">
+            <h3 data-i18n="noCopyTitle">No repository copy required</h3>
+            <p data-i18n="noCopyBody">
+              You do not need to fork, clone, or download this repository. Copy the contract code, paste it into Remix, and deploy with your own wallet.
+            </p>
+          </article>
+          <article class="notice warning-strong">
+            <h3 data-i18n="baseEthTitle">Base ETH is required</h3>
+            <p data-i18n-html="baseEthBody">
+              Deploying on Base Mainnet uses real gas. ETH on Ethereum Mainnet is <strong>not</strong> usable for Base gas. You need ETH on Base Mainnet.
+            </p>
+          </article>
+          <article class="notice">
+            <h3 data-i18n="guildTitle">Guild badge note</h3>
+            <p data-i18n="guildBody">
+              If a Guild badge checks contract deployment, the badge is awarded to the wallet that sends the deployment transaction.
+            </p>
+          </article>
+          <article class="notice">
+            <h3 data-i18n="ipfsTitle">What is IPFS?</h3>
+            <p data-i18n="ipfsBody">
+              IPFS stores NFT images and metadata. Upload the metadata folder, get a CID, then replace YOUR_METADATA_FOLDER_CID before deploying.
+            </p>
+          </article>
+        </div>
       </section>
 
       <section id="lessons" class="section">
@@ -607,6 +690,7 @@ tool: Remix</code></pre>
       const translations = {
         en: {
           navLessons: "Lessons",
+          navBeforeStart: "Before start",
           navDeployGuide: "Deploy guide",
           navTools: "Tools",
           navErrors: "Common errors",
@@ -615,6 +699,25 @@ tool: Remix</code></pre>
           openRemix: "Open Remix",
           openBaseScan: "Open BaseScan",
           viewContract: "View Contract",
+          beforeStartTitle: "Before You Start",
+          prepTitle: "Prepare these tools",
+          prepGithub: "GitHub account",
+          prepRemix: "Remix IDE",
+          prepWallet: "Rabby or MetaMask wallet",
+          prepEth: "ETH on Base Mainnet",
+          prepIpfs: "Optional IPFS upload service such as Pinata or Lighthouse",
+          noCopyTitle: "No repository copy required",
+          noCopyBody:
+            "You do not need to fork, clone, or download this repository. Copy the contract code, paste it into Remix, and deploy with your own wallet.",
+          baseEthTitle: "Base ETH is required",
+          baseEthBody:
+            "Deploying on Base Mainnet uses real gas. ETH on Ethereum Mainnet is <strong>not</strong> usable for Base gas. You need ETH on Base Mainnet.",
+          guildTitle: "Guild badge note",
+          guildBody:
+            "If a Guild badge checks contract deployment, the badge is awarded to the wallet that sends the deployment transaction.",
+          ipfsTitle: "What is IPFS?",
+          ipfsBody:
+            "IPFS stores NFT images and metadata. Upload the metadata folder, get a CID, then replace YOUR_METADATA_FOLDER_CID before deploying.",
           lessonsTitle: "Lessons",
           lessonDeployTitle: "Deploy with Remix",
           lessonDeployBody:
@@ -666,6 +769,7 @@ tool: Remix</code></pre>
         },
         ja: {
           navLessons: "レッスン",
+          navBeforeStart: "始める前に",
           navDeployGuide: "デプロイ手順",
           navTools: "必要なもの",
           navErrors: "よくあるエラー",
@@ -674,6 +778,25 @@ tool: Remix</code></pre>
           openRemix: "Remixを開く",
           openBaseScan: "BaseScanを開く",
           viewContract: "コントラクトを見る",
+          beforeStartTitle: "始める前に",
+          prepTitle: "用意するもの",
+          prepGithub: "GitHubアカウント",
+          prepRemix: "Remix IDE",
+          prepWallet: "RabbyまたはMetaMaskウォレット",
+          prepEth: "Baseメインネット上のETH",
+          prepIpfs: "任意のIPFSアップロードサービス。例: Pinata、Lighthouse",
+          noCopyTitle: "リポジトリのコピーは不要",
+          noCopyBody:
+            "このリポジトリをFork、Clone、Downloadする必要はありません。コントラクトコードをコピーしてRemixに貼り付け、自分のウォレットでデプロイできます。",
+          baseEthTitle: "Base上のETHが必要です",
+          baseEthBody:
+            "Baseメインネットへのデプロイには本物のガス代がかかります。Ethereum Mainnet上のETHはBaseのガス代には<strong>使えません</strong>。Baseメインネット上のETHが必要です。",
+          guildTitle: "Guildバッジについて",
+          guildBody:
+            "Guildがコントラクトデプロイを確認する場合、バッジは実際にデプロイトランザクションを送ったウォレットに付与されます。",
+          ipfsTitle: "IPFSとは？",
+          ipfsBody:
+            "IPFSはNFT画像とメタデータを保存する場所です。metadataフォルダをアップロードしてCIDを取得し、デプロイ前にYOUR_METADATA_FOLDER_CIDを置き換えます。",
           lessonsTitle: "レッスン",
           lessonDeployTitle: "Remixでデプロイ",
           lessonDeployBody:
