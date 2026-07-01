@@ -245,6 +245,14 @@ The constructor needs one value:
 "ipfs://YOUR_METADATA_FOLDER_CID/metadata.json"
 ```
 
+In Remix, paste this value into the input box named:
+
+```text
+initialTokenURI
+```
+
+This input box appears under the selected `BaseDeployPractice` contract in the Deploy section.
+
 Keep the quotation marks when entering a string in Remix.
 
 Do not leave `initialTokenURI` empty. If Remix shows **Gas estimation failed**, check this field first.

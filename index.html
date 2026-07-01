@@ -638,7 +638,8 @@ tool: Remix</code></pre>
             <div class="accordion-body" data-i18n-html="deployStep5Body">
               <ol>
                 <li>Select <code>BaseDeployPractice</code> in Remix.</li>
-                <li>Enter <code>"ipfs://YOUR_METADATA_FOLDER_CID/metadata.json"</code> as the constructor value.</li>
+                <li>Find the <code>initialTokenURI</code> input box under the Deploy section.</li>
+                <li>Paste <code>"ipfs://YOUR_METADATA_FOLDER_CID/metadata.json"</code> into that <code>initialTokenURI</code> box.</li>
                 <li>Do not leave <code>initialTokenURI</code> empty. If Remix says gas estimation failed, check this field first.</li>
                 <li>Click <strong>Deploy</strong> and confirm the transaction in your wallet.</li>
               </ol>
@@ -758,7 +759,7 @@ tool: Remix</code></pre>
             "<ol><li>Open your wallet network selector.</li><li>Choose <strong>Base Mainnet</strong>.</li><li>Make sure you have a small amount of ETH on Base for gas.</li><li>If Remix shows <strong>Remix VM</strong>, you are only on a test network. Switch to WalletConnect for the real Base Mainnet deployment.</li></ol>",
           deployStep5Title: "5. Deploy the contract",
           deployStep5Body:
-            '<ol><li>Select <code>BaseDeployPractice</code> in Remix.</li><li>Enter <code>"ipfs://YOUR_METADATA_FOLDER_CID/metadata.json"</code> as the constructor value.</li><li>Do not leave <code>initialTokenURI</code> empty. If Remix says gas estimation failed, check this field first.</li><li>Click <strong>Deploy</strong> and confirm the transaction in your wallet.</li></ol>',
+            '<ol><li>Select <code>BaseDeployPractice</code> in Remix.</li><li>Find the <code>initialTokenURI</code> input box under the Deploy section.</li><li>Paste <code>"ipfs://YOUR_METADATA_FOLDER_CID/metadata.json"</code> into that <code>initialTokenURI</code> box.</li><li>Do not leave <code>initialTokenURI</code> empty. If Remix says gas estimation failed, check this field first.</li><li>Click <strong>Deploy</strong> and confirm the transaction in your wallet.</li></ol>',
           deployStep6Title: "6. Find and click the mint button",
           deployStep6Body:
             "<ol><li>After deployment, open <strong>Deployed Contracts</strong> in Remix.</li><li>Expand <code>BASEDEPLOYPRACTICE</code>.</li><li>Click the orange <strong>mint</strong> button and confirm the transaction.</li></ol>",
@@ -840,7 +841,7 @@ tool: Remix</code></pre>
             "<ol><li>ウォレットのネットワーク選択を開きます。</li><li><strong>Base Mainnet</strong> を選びます。</li><li>ガス代用にBase上のETHが少し入っていることを確認します。</li><li>Remixに <strong>Remix VM</strong> と表示されている場合はテスト環境です。本番のBase MainnetデプロイはWalletConnectで行います。</li></ol>",
           deployStep5Title: "5. コントラクトをデプロイする",
           deployStep5Body:
-            '<ol><li>Remixで <code>BaseDeployPractice</code> を選びます。</li><li>コンストラクタの値に <code>"ipfs://YOUR_METADATA_FOLDER_CID/metadata.json"</code> を入れます。</li><li><code>initialTokenURI</code> は空欄にしないでください。Gas estimation failed が出たら、まずここを確認します。</li><li><strong>Deploy</strong> を押し、ウォレットでトランザクションを承認します。</li></ol>',
+            '<ol><li>Remixで <code>BaseDeployPractice</code> を選びます。</li><li>Deploy欄の下にある <code>initialTokenURI</code> という入力ボックスを探します。</li><li>その <code>initialTokenURI</code> 欄に <code>"ipfs://YOUR_METADATA_FOLDER_CID/metadata.json"</code> を貼り付けます。</li><li><code>initialTokenURI</code> は空欄にしないでください。Gas estimation failed が出たら、まずここを確認します。</li><li><strong>Deploy</strong> を押し、ウォレットでトランザクションを承認します。</li></ol>',
           deployStep6Title: "6. mintボタンを見つけて押す",
           deployStep6Body:
             "<ol><li>デプロイ後、Remixの <strong>Deployed Contracts</strong> を開きます。</li><li><code>BASEDEPLOYPRACTICE</code> を展開します。</li><li>オレンジ色の <strong>mint</strong> ボタンを押し、ウォレットで承認します。</li></ol>",
