@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Base Deploy Practice</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #172033;
+        --muted: #5f6b7a;
+        --line: #d7dde6;
+        --paper: #ffffff;
+        --soft: #f5f7fb;
+        --base: #1457ff;
+        --green: #138a61;
+        --yellow: #b66a00;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: var(--soft);
+      }
+
+      a {
+        color: var(--base);
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(12px);
+      }
+
+      .topbar-inner {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        min-height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+      }
+
+      .brand-mark {
+        width: 32px;
+        height: 32px;
+        display: grid;
+        place-items: center;
+        color: white;
+        background: var(--base);
+        border-radius: 8px;
+        font-weight: 900;
+      }
+
+      .nav {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .nav a,
+      .button {
+        min-height: 38px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 8px 12px;
+        color: var(--ink);
+        background: var(--paper);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .button.primary {
+        color: white;
+        border-color: var(--base);
+        background: var(--base);
+      }
+
+      .hero {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 56px 0 28px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+        gap: 32px;
+        align-items: center;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 820px;
+        font-size: clamp(42px, 6vw, 76px);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        margin: 22px 0 0;
+        max-width: 680px;
+        color: var(--muted);
+        font-size: 19px;
+        line-height: 1.65;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .contract-panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        box-shadow: 0 18px 50px rgba(30, 42, 70, 0.12);
+        overflow: hidden;
+      }
+
+      .panel-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        min-height: 48px;
+        padding: 0 16px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .dots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #c6ceda;
+      }
+
+      .panel-label {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      pre {
+        margin: 0;
+        padding: 18px;
+        overflow: auto;
+        color: #d9e4ff;
+        background: #111827;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      main {
+        padding-bottom: 56px;
+      }
+
+      .section {
+        width: min(1120px, calc(100% - 32px));
+        margin: 28px auto 0;
+      }
+
+      .section h2 {
+        margin: 0 0 16px;
+        font-size: 28px;
+        letter-spacing: 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        min-height: 210px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+      }
+
+      .step-number {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        color: white;
+        background: var(--base);
+        font-weight: 900;
+      }
+
+      .card h3 {
+        margin: 18px 0 8px;
+        font-size: 20px;
+      }
+
+      .card p,
+      .checklist li,
+      .note {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .checklist {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .checklist li {
+        min-height: 54px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+      }
+
+      .status {
+        width: 20px;
+        height: 20px;
+        display: grid;
+        place-items: center;
+        flex: 0 0 auto;
+        color: white;
+        border-radius: 6px;
+        background: var(--green);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .warning {
+        border-left: 4px solid var(--yellow);
+        padding: 16px 18px;
+        background: #fff8eb;
+        border-radius: 8px;
+      }
+
+      footer {
+        width: min(1120px, calc(100% - 32px));
+        margin: 36px auto 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 820px) {
+        .topbar-inner,
+        .hero {
+          width: min(100% - 24px, 1120px);
+        }
+
+        .topbar-inner {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 12px 0;
+        }
+
+        .nav {
+          justify-content: flex-start;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          padding-top: 36px;
+        }
+
+        .grid,
+        .checklist {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="brand-mark">B</div>
+          <span>Base Deploy Practice</span>
+        </div>
+        <nav class="nav" aria-label="Project sections">
+          <a href="#lessons">Lessons</a>
+          <a href="#tools">Tools</a>
+          <a href="#errors">Common errors</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <h1>Base Deploy Practice</h1>
+          <p class="lead">
+            A visual companion for practicing smart contract deployment on Base
+            Mainnet with Remix, BaseScan, and one simple NFT mint.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="https://remix.ethereum.org/" target="_blank" rel="noreferrer">Open Remix</a>
+            <a class="button" href="https://basescan.org/" target="_blank" rel="noreferrer">Open BaseScan</a>
+            <a class="button" href="./contracts/BaseDeployPractice.sol">View Contract</a>
+          </div>
+        </div>
+
+        <aside class="contract-panel" aria-label="Contract summary">
+          <div class="panel-head">
+            <div class="dots" aria-hidden="true">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <span class="panel-label">BaseDeployPractice.sol</span>
+          </div>
+          <pre><code>name: Base Deploy Practice NFT
+symbol: BDP
+max supply: 100
+mint price: free
+wallet limit: 1
+network: Base Mainnet
+tool: Remix</code></pre>
+        </aside>
+      </section>
+
+      <section id="lessons" class="section">
+        <h2>Lessons</h2>
+        <div class="grid">
+          <article class="card">
+            <div class="step-number">1</div>
+            <h3>Deploy with Remix</h3>
+            <p>
+              Compile the Solidity file, connect Rabby or MetaMask with Injected
+              Provider, switch to Base Mainnet, and deploy the contract.
+            </p>
+          </article>
+          <article class="card">
+            <div class="step-number">2</div>
+            <h3>Verify on BaseScan</h3>
+            <p>
+              Find your deployed contract, match the compiler version, enter the
+              constructor value, and publish the source code.
+            </p>
+          </article>
+          <article class="card">
+            <div class="step-number">3</div>
+            <h3>Mint one NFT</h3>
+            <p>
+              Use Remix's deployed contract panel, click <strong>mint()</strong>,
+              confirm the transaction, and check it on BaseScan.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="tools" class="section">
+        <h2>Required Tools</h2>
+        <ul class="checklist">
+          <li><span class="status">✓</span> GitHub account</li>
+          <li><span class="status">✓</span> Remix IDE</li>
+          <li><span class="status">✓</span> Rabby or MetaMask wallet</li>
+          <li><span class="status">✓</span> Small amount of ETH on Base Mainnet</li>
+        </ul>
+      </section>
+
+      <section id="errors" class="section">
+        <h2>Common Errors</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Wrong network</h3>
+            <p>Switch your wallet to Base Mainnet before deploying or minting.</p>
+          </article>
+          <article class="card">
+            <h3>Not enough ETH</h3>
+            <p>Minting is free, but every transaction still needs gas on Base.</p>
+          </article>
+          <article class="card">
+            <h3>Already minted</h3>
+            <p>Each wallet can mint only once from this beginner practice contract.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="warning">
+          <strong>Important:</strong>
+          This page is only a visual learning guide. Deployment and minting are
+          still done in Remix, exactly as described in the README.
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Built for beginners practicing Base Mainnet deployment, BaseScan
+      verification, and NFT minting.
+    </footer>
+  </body>
+</html>

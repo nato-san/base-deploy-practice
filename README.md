@@ -10,6 +10,18 @@ You will practice three important skills:
 
 This project is Remix-only. There is no frontend app, no deployment script, no Hardhat setup, and no Foundry setup.
 
+## Visual Guide
+
+This repository also includes a simple static page:
+
+```text
+index.html
+```
+
+Open `index.html` in your browser if you want a visual overview of the lesson.
+
+Important: this page is only a learning guide. You still deploy, verify, and mint using Remix, BaseScan, and your wallet.
+
 ## What You Will Build
 
 You will deploy an NFT contract called `BaseDeployPractice`.
