@@ -56,7 +56,7 @@ You do not need to fork, clone, or download this repository to practice deployme
 
 To practice with Remix:
 
-1. Open `contracts/BaseDeployPractice.sol`
+1. Open [`contracts/BaseDeployPractice.sol`](https://github.com/nato-san/base-deploy-practice/blob/main/contracts/BaseDeployPractice.sol)
 2. Copy the contract code
 3. Paste it into Remix
 4. Deploy using your own wallet
