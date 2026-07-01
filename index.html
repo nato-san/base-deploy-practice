@@ -140,6 +140,14 @@
         overflow: hidden;
       }
 
+      .nft-image {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-bottom: 1px solid var(--line);
+      }
+
       .panel-head {
         display: flex;
         align-items: center;
@@ -344,11 +352,13 @@
             </div>
             <span class="panel-label">BaseDeployPractice.sol</span>
           </div>
+          <img class="nft-image" src="./metadata/hamuko.jpeg" alt="Hamuko Warpcast Party NFT artwork" />
           <pre><code>name: Base Deploy Practice NFT
 symbol: BDP
 max supply: 100
 mint price: free
 wallet limit: 1
+mint image: Hamuko
 network: Base Mainnet
 tool: Remix</code></pre>
         </aside>
@@ -378,7 +388,7 @@ tool: Remix</code></pre>
             <h3>Mint one NFT</h3>
             <p>
               Use Remix's deployed contract panel, click <strong>mint()</strong>,
-              confirm the transaction, and check it on BaseScan.
+              confirm the transaction, and mint the Hamuko image as your practice NFT.
             </p>
           </article>
         </div>

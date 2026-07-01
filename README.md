@@ -84,21 +84,33 @@ initialTokenURI
 
 This is the metadata URL for the NFT.
 
-For practice, you can use a placeholder string at first:
+This project includes the NFT image here:
 
 ```text
-ipfs://YOUR_METADATA_CID/metadata.json
+metadata/hamuko.jpeg
 ```
 
-For a real NFT display, upload `metadata/metadata.json` and an image to IPFS, then replace the placeholder values with your real IPFS links.
+The sample metadata file points to that image with an IPFS-style folder path:
+
+```json
+"image": "ipfs://YOUR_METADATA_FOLDER_CID/hamuko.jpeg"
+```
+
+For a real NFT display, upload the whole `metadata` folder to IPFS. After upload, replace `YOUR_METADATA_FOLDER_CID` with your real folder CID.
+
+Your constructor value should point to the uploaded metadata file:
+
+```text
+ipfs://YOUR_METADATA_FOLDER_CID/metadata.json
+```
 
 Example metadata:
 
 ```json
 {
-  "name": "Base Deploy Practice NFT",
-  "description": "A beginner-friendly NFT for practicing smart contract deployment, verification, and minting on Base Mainnet using Remix.",
-  "image": "ipfs://YOUR_IMAGE_CID/base-deploy-practice.png"
+  "name": "Hamuko Warpcast Party",
+  "description": "A practice NFT for learning how to deploy a contract on Base Mainnet, verify it on BaseScan, and mint your own NFT using Remix.",
+  "image": "ipfs://YOUR_METADATA_FOLDER_CID/hamuko.jpeg"
 }
 ```
 
@@ -179,7 +191,7 @@ BaseDeployPractice
 The constructor needs one value:
 
 ```text
-"ipfs://YOUR_METADATA_CID/metadata.json"
+"ipfs://YOUR_METADATA_FOLDER_CID/metadata.json"
 ```
 
 Keep the quotation marks when entering a string in Remix.

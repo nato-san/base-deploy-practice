@@ -1,8 +1,12 @@
 {
-  "name": "Base Deploy Practice NFT",
-  "description": "A beginner-friendly NFT for practicing smart contract deployment, verification, and minting on Base Mainnet using Remix.",
-  "image": "ipfs://YOUR_IMAGE_CID/base-deploy-practice.png",
+  "name": "Hamuko Warpcast Party",
+  "description": "A practice NFT for learning how to deploy a contract on Base Mainnet, verify it on BaseScan, and mint your own NFT using Remix.",
+  "image": "ipfs://YOUR_METADATA_FOLDER_CID/hamuko.jpeg",
   "attributes": [
+    {
+      "trait_type": "Character",
+      "value": "Hamuko"
+    },
     {
       "trait_type": "Network",
       "value": "Base Mainnet"
@@ -14,6 +18,10 @@
     {
       "trait_type": "Tool",
       "value": "Remix"
+    },
+    {
+      "trait_type": "Lesson",
+      "value": "Deploy and Mint"
     }
   ]
 }
