@@ -87,13 +87,13 @@ This is the metadata URL for the NFT.
 This project includes the NFT image here:
 
 ```text
-metadata/hamuko.jpeg
+metadata/base-deploy-practice-nft.png
 ```
 
 The sample metadata file points to that image with an IPFS-style folder path:
 
 ```json
-"image": "ipfs://YOUR_METADATA_FOLDER_CID/hamuko.jpeg"
+"image": "ipfs://YOUR_METADATA_FOLDER_CID/base-deploy-practice-nft.png"
 ```
 
 For a real NFT display, upload the whole `metadata` folder to IPFS. After upload, replace `YOUR_METADATA_FOLDER_CID` with your real folder CID.
@@ -108,9 +108,9 @@ Example metadata:
 
 ```json
 {
-  "name": "Hamuko Warpcast Party",
+  "name": "Base Deploy Practice NFT",
   "description": "A practice NFT for learning how to deploy a contract on Base Mainnet, verify it on BaseScan, and mint your own NFT using Remix.",
-  "image": "ipfs://YOUR_METADATA_FOLDER_CID/hamuko.jpeg"
+  "image": "ipfs://YOUR_METADATA_FOLDER_CID/base-deploy-practice-nft.png"
 }
 ```
 
