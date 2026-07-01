@@ -78,7 +78,8 @@
       }
 
       .nav a,
-      .button {
+      .button,
+      .lang-button {
         min-height: 38px;
         display: inline-flex;
         align-items: center;
@@ -91,6 +92,26 @@
         text-decoration: none;
         font-size: 14px;
         font-weight: 700;
+      }
+
+      .lang-switcher {
+        display: flex;
+        gap: 6px;
+        padding: 4px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--soft);
+      }
+
+      .lang-button {
+        min-width: 48px;
+        border-color: transparent;
+        cursor: pointer;
+      }
+
+      .lang-button[aria-pressed="true"] {
+        color: white;
+        background: var(--base);
       }
 
       .button.primary {
@@ -301,6 +322,14 @@
           justify-content: flex-start;
         }
 
+        .lang-switcher {
+          width: 100%;
+        }
+
+        .lang-button {
+          flex: 1;
+        }
+
         .hero {
           grid-template-columns: 1fr;
           padding-top: 36px;
@@ -321,10 +350,14 @@
           <span>Base Deploy Practice</span>
         </div>
         <nav class="nav" aria-label="Project sections">
-          <a href="#lessons">Lessons</a>
-          <a href="#tools">Tools</a>
-          <a href="#errors">Common errors</a>
+          <a href="#lessons" data-i18n="navLessons">Lessons</a>
+          <a href="#tools" data-i18n="navTools">Tools</a>
+          <a href="#errors" data-i18n="navErrors">Common errors</a>
         </nav>
+        <div class="lang-switcher" aria-label="Language">
+          <button class="lang-button" type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-button" type="button" data-lang="ja" aria-pressed="false">日本語</button>
+        </div>
       </div>
     </header>
 
@@ -332,14 +365,14 @@
       <section class="hero">
         <div>
           <h1>Base Deploy Practice</h1>
-          <p class="lead">
+          <p class="lead" data-i18n="heroLead">
             A visual companion for practicing smart contract deployment on Base
             Mainnet with Remix, BaseScan, and one simple NFT mint.
           </p>
           <div class="actions">
-            <a class="button primary" href="https://remix.ethereum.org/" target="_blank" rel="noreferrer">Open Remix</a>
-            <a class="button" href="https://basescan.org/" target="_blank" rel="noreferrer">Open BaseScan</a>
-            <a class="button" href="./contracts/BaseDeployPractice.sol">View Contract</a>
+            <a class="button primary" href="https://remix.ethereum.org/" target="_blank" rel="noreferrer" data-i18n="openRemix">Open Remix</a>
+            <a class="button" href="https://basescan.org/" target="_blank" rel="noreferrer" data-i18n="openBaseScan">Open BaseScan</a>
+            <a class="button" href="./contracts/BaseDeployPractice.sol" data-i18n="viewContract">View Contract</a>
           </div>
         </div>
 
@@ -365,28 +398,28 @@ tool: Remix</code></pre>
       </section>
 
       <section id="lessons" class="section">
-        <h2>Lessons</h2>
+        <h2 data-i18n="lessonsTitle">Lessons</h2>
         <div class="grid">
           <article class="card">
             <div class="step-number">1</div>
-            <h3>Deploy with Remix</h3>
-            <p>
+            <h3 data-i18n="lessonDeployTitle">Deploy with Remix</h3>
+            <p data-i18n="lessonDeployBody">
               Compile the Solidity file, connect Rabby or MetaMask with Injected
               Provider, switch to Base Mainnet, and deploy the contract.
             </p>
           </article>
           <article class="card">
             <div class="step-number">2</div>
-            <h3>Verify on BaseScan</h3>
-            <p>
+            <h3 data-i18n="lessonVerifyTitle">Verify on BaseScan</h3>
+            <p data-i18n="lessonVerifyBody">
               Find your deployed contract, match the compiler version, enter the
               constructor value, and publish the source code.
             </p>
           </article>
           <article class="card">
             <div class="step-number">3</div>
-            <h3>Mint one NFT</h3>
-            <p>
+            <h3 data-i18n="lessonMintTitle">Mint one NFT</h3>
+            <p data-i18n-html="lessonMintBody">
               Use Remix's deployed contract panel, click <strong>mint()</strong>,
               confirm the transaction, and mint the Hamuko image as your practice NFT.
             </p>
@@ -395,35 +428,35 @@ tool: Remix</code></pre>
       </section>
 
       <section id="tools" class="section">
-        <h2>Required Tools</h2>
+        <h2 data-i18n="toolsTitle">Required Tools</h2>
         <ul class="checklist">
-          <li><span class="status">✓</span> GitHub account</li>
-          <li><span class="status">✓</span> Remix IDE</li>
-          <li><span class="status">✓</span> Rabby or MetaMask wallet</li>
-          <li><span class="status">✓</span> Small amount of ETH on Base Mainnet</li>
+          <li><span class="status">✓</span> <span data-i18n="toolGithub">GitHub account</span></li>
+          <li><span class="status">✓</span> <span data-i18n="toolRemix">Remix IDE</span></li>
+          <li><span class="status">✓</span> <span data-i18n="toolWallet">Rabby or MetaMask wallet</span></li>
+          <li><span class="status">✓</span> <span data-i18n="toolEth">Small amount of ETH on Base Mainnet</span></li>
         </ul>
       </section>
 
       <section id="errors" class="section">
-        <h2>Common Errors</h2>
+        <h2 data-i18n="errorsTitle">Common Errors</h2>
         <div class="grid">
           <article class="card">
-            <h3>Wrong network</h3>
-            <p>Switch your wallet to Base Mainnet before deploying or minting.</p>
+            <h3 data-i18n="errorNetworkTitle">Wrong network</h3>
+            <p data-i18n="errorNetworkBody">Switch your wallet to Base Mainnet before deploying or minting.</p>
           </article>
           <article class="card">
-            <h3>Not enough ETH</h3>
-            <p>Minting is free, but every transaction still needs gas on Base.</p>
+            <h3 data-i18n="errorEthTitle">Not enough ETH</h3>
+            <p data-i18n="errorEthBody">Minting is free, but every transaction still needs gas on Base.</p>
           </article>
           <article class="card">
-            <h3>Already minted</h3>
-            <p>Each wallet can mint only once from this beginner practice contract.</p>
+            <h3 data-i18n="errorMintedTitle">Already minted</h3>
+            <p data-i18n="errorMintedBody">Each wallet can mint only once from this beginner practice contract.</p>
           </article>
         </div>
       </section>
 
       <section class="section">
-        <div class="warning">
+        <div class="warning" data-i18n-html="warning">
           <strong>Important:</strong>
           This page is only a visual learning guide. Deployment and minting are
           still done in Remix, exactly as described in the README.
@@ -431,9 +464,116 @@ tool: Remix</code></pre>
       </section>
     </main>
 
-    <footer>
+    <footer data-i18n="footer">
       Built for beginners practicing Base Mainnet deployment, BaseScan
       verification, and NFT minting.
     </footer>
+    <script>
+      const translations = {
+        en: {
+          navLessons: "Lessons",
+          navTools: "Tools",
+          navErrors: "Common errors",
+          heroLead:
+            "A visual companion for practicing smart contract deployment on Base Mainnet with Remix, BaseScan, and one simple NFT mint.",
+          openRemix: "Open Remix",
+          openBaseScan: "Open BaseScan",
+          viewContract: "View Contract",
+          lessonsTitle: "Lessons",
+          lessonDeployTitle: "Deploy with Remix",
+          lessonDeployBody:
+            "Compile the Solidity file, connect Rabby or MetaMask with Injected Provider, switch to Base Mainnet, and deploy the contract.",
+          lessonVerifyTitle: "Verify on BaseScan",
+          lessonVerifyBody:
+            "Find your deployed contract, match the compiler version, enter the constructor value, and publish the source code.",
+          lessonMintTitle: "Mint one NFT",
+          lessonMintBody:
+            "Use Remix's deployed contract panel, click <strong>mint()</strong>, confirm the transaction, and mint the Hamuko image as your practice NFT.",
+          toolsTitle: "Required Tools",
+          toolGithub: "GitHub account",
+          toolRemix: "Remix IDE",
+          toolWallet: "Rabby or MetaMask wallet",
+          toolEth: "Small amount of ETH on Base Mainnet",
+          errorsTitle: "Common Errors",
+          errorNetworkTitle: "Wrong network",
+          errorNetworkBody:
+            "Switch your wallet to Base Mainnet before deploying or minting.",
+          errorEthTitle: "Not enough ETH",
+          errorEthBody:
+            "Minting is free, but every transaction still needs gas on Base.",
+          errorMintedTitle: "Already minted",
+          errorMintedBody:
+            "Each wallet can mint only once from this beginner practice contract.",
+          warning:
+            "<strong>Important:</strong> This page is only a visual learning guide. Deployment and minting are still done in Remix, exactly as described in the README.",
+          footer:
+            "Built for beginners practicing Base Mainnet deployment, BaseScan verification, and NFT minting."
+        },
+        ja: {
+          navLessons: "レッスン",
+          navTools: "必要なもの",
+          navErrors: "よくあるエラー",
+          heroLead:
+            "Baseメインネットでのコントラクトデプロイ、BaseScanでの検証、そして自分でNFTをmintする流れをRemixで練習するための教材ページです。",
+          openRemix: "Remixを開く",
+          openBaseScan: "BaseScanを開く",
+          viewContract: "コントラクトを見る",
+          lessonsTitle: "レッスン",
+          lessonDeployTitle: "Remixでデプロイ",
+          lessonDeployBody:
+            "Solidityファイルをコンパイルし、RabbyまたはMetaMaskをInjected Providerで接続し、Baseメインネットに切り替えてコントラクトをデプロイします。",
+          lessonVerifyTitle: "BaseScanで検証",
+          lessonVerifyBody:
+            "デプロイしたコントラクトを開き、コンパイラバージョンとコンストラクタ値を合わせて、ソースコードを公開します。",
+          lessonMintTitle: "NFTを1つmint",
+          lessonMintBody:
+            "Remixのデプロイ済みコントラクト欄から <strong>mint()</strong> を押し、トランザクションを承認して、Hamuko画像の練習NFTをmintします。",
+          toolsTitle: "必要なもの",
+          toolGithub: "GitHubアカウント",
+          toolRemix: "Remix IDE",
+          toolWallet: "RabbyまたはMetaMaskウォレット",
+          toolEth: "Baseメインネット上の少量のETH",
+          errorsTitle: "よくあるエラー",
+          errorNetworkTitle: "ネットワークが違う",
+          errorNetworkBody:
+            "デプロイやmintの前に、ウォレットをBaseメインネットへ切り替えてください。",
+          errorEthTitle: "ETHが足りない",
+          errorEthBody:
+            "mintは無料ですが、Base上のすべてのトランザクションにはガス代が必要です。",
+          errorMintedTitle: "すでにmint済み",
+          errorMintedBody:
+            "この初心者向け練習コントラクトでは、1つのウォレットにつき1回だけmintできます。",
+          warning:
+            "<strong>重要:</strong> このページは見た目で流れをつかむための学習ガイドです。デプロイ、検証、mintはREADMEの手順どおりRemixで行います。",
+          footer:
+            "Baseメインネットへのデプロイ、BaseScan検証、NFT mintを練習する初心者向け教材です。"
+        }
+      };
+
+      function setLanguage(language) {
+        const dictionary = translations[language];
+        document.documentElement.lang = language;
+
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          element.textContent = dictionary[element.dataset.i18n];
+        });
+
+        document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+          element.innerHTML = dictionary[element.dataset.i18nHtml];
+        });
+
+        document.querySelectorAll(".lang-button").forEach((button) => {
+          button.setAttribute("aria-pressed", String(button.dataset.lang === language));
+        });
+
+        localStorage.setItem("baseDeployPracticeLanguage", language);
+      }
+
+      document.querySelectorAll(".lang-button").forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.lang));
+      });
+
+      setLanguage(localStorage.getItem("baseDeployPracticeLanguage") || "en");
+    </script>
   </body>
 </html>
