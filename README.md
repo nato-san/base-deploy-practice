@@ -76,14 +76,6 @@ ETH on Base Mainnet     = usable for Base gas
 
 Minting is free in this contract, but deployment and mint transactions still require gas.
 
-## Guild Badge Note
-
-If a Guild badge checks contract deployment, the badge is awarded to the wallet that sends the deployment transaction.
-
-This means you can use this sample contract code and still deploy your own contract with your own wallet.
-
-Each learner can earn their own badge by deploying the contract on Base Mainnet from their own wallet.
-
 ## Project Structure
 
 ```text
