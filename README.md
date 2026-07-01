@@ -205,17 +205,23 @@ If the compile button succeeds, you are ready to deploy.
 
 Open the **Deploy & Run Transactions** tab in Remix.
 
-Under **Environment**, choose:
+Under **Environment**, first try:
 
 ```text
-WalletConnect
+Browser Extension
 ```
 
-If **Browser Extension** works with your wallet, that is also OK. In older Remix tutorials, this may be called **Injected Provider**.
+Then choose Rabby or MetaMask.
+
+In older Remix tutorials, this may be called **Injected Provider**.
+
+Use **WalletConnect** only as a fallback if Browser Extension does not work. WalletConnect can work, but it may be harder to troubleshoot when a wallet confirmation does not appear.
 
 Your wallet, such as Rabby or MetaMask, should ask for permission to connect.
 
 Approve the connection.
+
+For this beginner lesson, Rabby or MetaMask is recommended. Rainbow Wallet may be harder to use with Remix network switching.
 
 ### Step 5: Switch Wallet to Base Mainnet
 
@@ -225,11 +231,33 @@ In your wallet, switch the network to:
 Base Mainnet
 ```
 
-Make sure Remix also shows the Base Mainnet network after you connect with Injected Provider.
+Make sure Remix also shows the Base Mainnet network after you connect with Browser Extension.
 
 You need a small amount of ETH on Base Mainnet to pay the deployment gas fee.
 
 Important: if Remix shows `Remix VM`, you are only using a test network inside Remix. That is useful for practice, but it is not Base Mainnet and it will not appear on BaseScan.
+
+Before confirming any wallet transaction, check the network name carefully.
+
+Good:
+
+```text
+Base
+Base Mainnet
+Base (8453)
+```
+
+Stop and cancel if you see:
+
+```text
+Ethereum
+Mantle
+Mantle Sepolia
+MNT
+Remix VM
+```
+
+If Remix keeps showing an old network, disconnect `remix.ethereum.org` from your wallet's connected sites, switch the wallet to Base, reload Remix, and connect again.
 
 ### Step 6: Deploy
 
@@ -257,6 +285,14 @@ Keep the quotation marks when entering a string in Remix.
 
 Do not leave `initialTokenURI` empty. If Remix shows **Gas estimation failed**, check this field first.
 
+The placeholder value is enough for deployment practice, but the NFT image will not display from this placeholder:
+
+```text
+ipfs://YOUR_METADATA_FOLDER_CID/metadata.json
+```
+
+For an image to appear, upload the metadata folder to IPFS and use the real metadata URI. If you already deployed with the placeholder, the contract owner can later call `setTokenURI()` in Remix with the real URI.
+
 Click **Deploy**.
 
 Your wallet will open a transaction confirmation.
@@ -266,6 +302,8 @@ Check the network and gas fee, then confirm the transaction.
 After the transaction is confirmed, Remix will show the deployed contract in the **Deployed Contracts** section.
 
 Save the deployed contract address. You will need it for BaseScan verification.
+
+If Remix is reloaded and **Deployed Contracts** becomes empty, the contract is not gone. Find the contract address on BaseScan, compile the same file again in Remix, then use **At Address** or **Add Contract** to load the deployed contract panel again.
 
 ## Lesson 2 — Verify Contract on BaseScan
 
@@ -440,7 +478,17 @@ Your wallet is not connected to Base Mainnet.
 
 Fix:
 
-Switch Rabby or MetaMask to Base Mainnet, then reconnect Remix using WalletConnect or Browser Extension.
+Switch Rabby or MetaMask to Base Mainnet, then reconnect Remix using Browser Extension.
+
+### Old network stays connected
+
+Problem:
+
+Remix or your wallet confirmation still shows a previous network such as Ethereum, Mantle, Mantle Sepolia, or MNT.
+
+Fix:
+
+Cancel the transaction. In your wallet, disconnect `remix.ethereum.org` from connected sites. Switch the wallet to Base Mainnet. Reload Remix, then reconnect with Browser Extension.
 
 ### Remix VM instead of Base Mainnet
 
@@ -450,7 +498,27 @@ Your contract appears under `Remix VM`, so it was only deployed to Remix's test 
 
 Fix:
 
-Use WalletConnect or Browser Extension, switch your wallet to Base Mainnet, then deploy again.
+Use Browser Extension, switch your wallet to Base Mainnet, then deploy again. Use WalletConnect only as a fallback.
+
+### Deployed Contracts is empty after reload
+
+Problem:
+
+The deployment transaction succeeded on BaseScan, but Remix shows `Deployed Contracts 0`.
+
+Fix:
+
+This is a Remix display issue. Compile the same contract file again, then use **At Address** or **Add Contract** with the contract address from BaseScan.
+
+### NFT image does not show
+
+Problem:
+
+You minted successfully, but the NFT image is blank in the wallet or marketplace.
+
+Fix:
+
+The placeholder `YOUR_METADATA_FOLDER_CID` is not a real IPFS CID. Upload the metadata folder to IPFS and use the real `ipfs://.../metadata.json` URI. If you are the contract owner, you can call `setTokenURI()` in Remix to update the URI after deployment.
 
 ### Gas estimation failed
 
