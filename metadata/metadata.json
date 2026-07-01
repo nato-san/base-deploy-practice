@@ -1,0 +1,19 @@
+{
+  "name": "Base Deploy Practice NFT",
+  "description": "A beginner-friendly NFT for practicing smart contract deployment, verification, and minting on Base Mainnet using Remix.",
+  "image": "ipfs://YOUR_IMAGE_CID/base-deploy-practice.png",
+  "attributes": [
+    {
+      "trait_type": "Network",
+      "value": "Base Mainnet"
+    },
+    {
+      "trait_type": "Project",
+      "value": "Base Deploy Practice"
+    },
+    {
+      "trait_type": "Tool",
+      "value": "Remix"
+    }
+  ]
+}
