@@ -548,6 +548,12 @@ tool: Remix</code></pre>
               IPFS stores NFT images and metadata. Upload the metadata folder, get a CID, then replace YOUR_METADATA_FOLDER_CID before deploying.
             </p>
           </article>
+          <article class="notice warning-strong">
+            <h3 data-i18n="remixRealityTitle">Remix labels may look different</h3>
+            <p data-i18n="remixRealityBody">
+              For Base Mainnet, use WalletConnect if Browser Extension does not work. Remix VM is only a test network and does not deploy to Base Mainnet.
+            </p>
+          </article>
         </div>
       </section>
 
@@ -596,9 +602,10 @@ tool: Remix</code></pre>
             </div>
           </details>
           <details>
-            <summary data-i18n="deployStep2Title">2. Compile the contract</summary>
+            <summary data-i18n="deployStep2Title">2. Select the file and compile the contract</summary>
             <div class="accordion-body" data-i18n-html="deployStep2Body">
               <ol>
+                <li>Click <code>BaseDeployPractice.sol</code> in the File Explorer so it is open in the editor.</li>
                 <li>Open the Solidity Compiler tab.</li>
                 <li>Select compiler version <code>0.8.20</code> or a newer <code>0.8.x</code> version.</li>
                 <li>Click <strong>Compile BaseDeployPractice.sol</strong>.</li>
@@ -610,7 +617,7 @@ tool: Remix</code></pre>
             <div class="accordion-body" data-i18n-html="deployStep3Body">
               <ol>
                 <li>Open the Deploy & Run Transactions tab.</li>
-                <li>Choose <strong>Injected Provider</strong> as the environment.</li>
+                <li>Choose <strong>WalletConnect</strong>. If your browser wallet works with <strong>Browser Extension</strong>, that is also OK.</li>
                 <li>Approve the connection in Rabby or MetaMask.</li>
               </ol>
             </div>
@@ -622,6 +629,7 @@ tool: Remix</code></pre>
                 <li>Open your wallet network selector.</li>
                 <li>Choose <strong>Base Mainnet</strong>.</li>
                 <li>Make sure you have a small amount of ETH on Base for gas.</li>
+                <li>If Remix shows <strong>Remix VM</strong>, you are only on a test network. Switch to WalletConnect for the real Base Mainnet deployment.</li>
               </ol>
             </div>
           </details>
@@ -631,6 +639,7 @@ tool: Remix</code></pre>
               <ol>
                 <li>Select <code>BaseDeployPractice</code> in Remix.</li>
                 <li>Enter <code>"ipfs://YOUR_METADATA_FOLDER_CID/metadata.json"</code> as the constructor value.</li>
+                <li>Do not leave <code>initialTokenURI</code> empty. If Remix says gas estimation failed, check this field first.</li>
                 <li>Click <strong>Deploy</strong> and confirm the transaction in your wallet.</li>
               </ol>
             </div>
@@ -721,6 +730,9 @@ tool: Remix</code></pre>
           ipfsTitle: "What is IPFS?",
           ipfsBody:
             "IPFS stores NFT images and metadata. Upload the metadata folder, get a CID, then replace YOUR_METADATA_FOLDER_CID before deploying.",
+          remixRealityTitle: "Remix labels may look different",
+          remixRealityBody:
+            "For Base Mainnet, use WalletConnect if Browser Extension does not work. Remix VM is only a test network and does not deploy to Base Mainnet.",
           lessonsTitle: "Lessons",
           lessonDeployTitle: "Deploy with Remix",
           lessonDeployBody:
@@ -735,18 +747,18 @@ tool: Remix</code></pre>
           deployStep1Title: "1. Open Remix and create the contract file",
           deployStep1Body:
             '<ol><li>Open <a href="https://remix.ethereum.org/" target="_blank" rel="noreferrer">Remix</a>.</li><li>Open <a href="https://github.com/nato-san/base-deploy-practice/blob/main/contracts/BaseDeployPractice.sol" target="_blank" rel="noreferrer">BaseDeployPractice.sol on GitHub</a>.</li><li>Copy all of the contract code.</li><li>In Remix, open the left File Explorer, create a new file named <code>contracts/BaseDeployPractice.sol</code>, and paste the code.</li></ol>',
-          deployStep2Title: "2. Compile the contract",
+          deployStep2Title: "2. Select the file and compile the contract",
           deployStep2Body:
-            "<ol><li>Open the Solidity Compiler tab.</li><li>Select compiler version <code>0.8.20</code> or a newer <code>0.8.x</code> version.</li><li>Click <strong>Compile BaseDeployPractice.sol</strong>.</li></ol>",
+            "<ol><li>Click <code>BaseDeployPractice.sol</code> in the File Explorer so it is open in the editor.</li><li>Open the Solidity Compiler tab.</li><li>Select compiler version <code>0.8.20</code> or a newer <code>0.8.x</code> version.</li><li>Click <strong>Compile BaseDeployPractice.sol</strong>.</li></ol>",
           deployStep3Title: "3. Connect your wallet to Remix",
           deployStep3Body:
-            "<ol><li>Open the Deploy & Run Transactions tab.</li><li>Choose <strong>Injected Provider</strong> as the environment.</li><li>Approve the connection in Rabby or MetaMask.</li></ol>",
+            "<ol><li>Open the Deploy & Run Transactions tab.</li><li>Choose <strong>WalletConnect</strong>. If your browser wallet works with <strong>Browser Extension</strong>, that is also OK.</li><li>Approve the connection in Rabby or MetaMask.</li></ol>",
           deployStep4Title: "4. Switch to Base Mainnet",
           deployStep4Body:
-            "<ol><li>Open your wallet network selector.</li><li>Choose <strong>Base Mainnet</strong>.</li><li>Make sure you have a small amount of ETH on Base for gas.</li></ol>",
+            "<ol><li>Open your wallet network selector.</li><li>Choose <strong>Base Mainnet</strong>.</li><li>Make sure you have a small amount of ETH on Base for gas.</li><li>If Remix shows <strong>Remix VM</strong>, you are only on a test network. Switch to WalletConnect for the real Base Mainnet deployment.</li></ol>",
           deployStep5Title: "5. Deploy the contract",
           deployStep5Body:
-            '<ol><li>Select <code>BaseDeployPractice</code> in Remix.</li><li>Enter <code>"ipfs://YOUR_METADATA_FOLDER_CID/metadata.json"</code> as the constructor value.</li><li>Click <strong>Deploy</strong> and confirm the transaction in your wallet.</li></ol>',
+            '<ol><li>Select <code>BaseDeployPractice</code> in Remix.</li><li>Enter <code>"ipfs://YOUR_METADATA_FOLDER_CID/metadata.json"</code> as the constructor value.</li><li>Do not leave <code>initialTokenURI</code> empty. If Remix says gas estimation failed, check this field first.</li><li>Click <strong>Deploy</strong> and confirm the transaction in your wallet.</li></ol>',
           deployStep6Title: "6. Find and click the mint button",
           deployStep6Body:
             "<ol><li>After deployment, open <strong>Deployed Contracts</strong> in Remix.</li><li>Expand <code>BASEDEPLOYPRACTICE</code>.</li><li>Click the orange <strong>mint</strong> button and confirm the transaction.</li></ol>",
@@ -800,6 +812,9 @@ tool: Remix</code></pre>
           ipfsTitle: "IPFSとは？",
           ipfsBody:
             "IPFSはNFT画像とメタデータを保存する場所です。metadataフォルダをアップロードしてCIDを取得し、デプロイ前にYOUR_METADATA_FOLDER_CIDを置き換えます。",
+          remixRealityTitle: "Remixの表示名は違うことがあります",
+          remixRealityBody:
+            "Base Mainnetにデプロイする時は、Browser ExtensionでうまくいかなければWalletConnectを使います。Remix VMはテスト用で、Base Mainnetにはデプロイされません。",
           lessonsTitle: "レッスン",
           lessonDeployTitle: "Remixでデプロイ",
           lessonDeployBody:
@@ -814,18 +829,18 @@ tool: Remix</code></pre>
           deployStep1Title: "1. Remixを開いてコントラクトファイルを作る",
           deployStep1Body:
             '<ol><li><a href="https://remix.ethereum.org/" target="_blank" rel="noreferrer">Remix</a> を開きます。</li><li><a href="https://github.com/nato-san/base-deploy-practice/blob/main/contracts/BaseDeployPractice.sol" target="_blank" rel="noreferrer">GitHubのBaseDeployPractice.sol</a> を開きます。</li><li>コントラクトコードをすべてコピーします。</li><li>Remix左側のFile Explorerを開き、<code>contracts/BaseDeployPractice.sol</code> という名前の新規ファイルを作って、コードを貼り付けます。</li></ol>',
-          deployStep2Title: "2. コントラクトをコンパイルする",
+          deployStep2Title: "2. ファイルを選択してコンパイルする",
           deployStep2Body:
-            "<ol><li>Solidity Compilerタブを開きます。</li><li>コンパイラは <code>0.8.20</code> または新しい <code>0.8.x</code> を選びます。</li><li><strong>Compile BaseDeployPractice.sol</strong> を押します。</li></ol>",
+            "<ol><li>File Explorerで <code>BaseDeployPractice.sol</code> をクリックし、中央のエディタで開いた状態にします。</li><li>Solidity Compilerタブを開きます。</li><li>コンパイラは <code>0.8.20</code> または新しい <code>0.8.x</code> を選びます。</li><li><strong>Compile BaseDeployPractice.sol</strong> を押します。</li></ol>",
           deployStep3Title: "3. ウォレットをRemixに接続する",
           deployStep3Body:
-            "<ol><li>Deploy & Run Transactionsタブを開きます。</li><li>Environmentで <strong>Injected Provider</strong> を選びます。</li><li>RabbyまたはMetaMaskで接続を承認します。</li></ol>",
+            "<ol><li>Deploy & Run Transactionsタブを開きます。</li><li>Environmentで <strong>WalletConnect</strong> を選びます。Browser Extensionで接続できる場合はそれでもOKです。</li><li>RabbyまたはMetaMaskで接続を承認します。</li></ol>",
           deployStep4Title: "4. Baseメインネットに切り替える",
           deployStep4Body:
-            "<ol><li>ウォレットのネットワーク選択を開きます。</li><li><strong>Base Mainnet</strong> を選びます。</li><li>ガス代用にBase上のETHが少し入っていることを確認します。</li></ol>",
+            "<ol><li>ウォレットのネットワーク選択を開きます。</li><li><strong>Base Mainnet</strong> を選びます。</li><li>ガス代用にBase上のETHが少し入っていることを確認します。</li><li>Remixに <strong>Remix VM</strong> と表示されている場合はテスト環境です。本番のBase MainnetデプロイはWalletConnectで行います。</li></ol>",
           deployStep5Title: "5. コントラクトをデプロイする",
           deployStep5Body:
-            '<ol><li>Remixで <code>BaseDeployPractice</code> を選びます。</li><li>コンストラクタの値に <code>"ipfs://YOUR_METADATA_FOLDER_CID/metadata.json"</code> を入れます。</li><li><strong>Deploy</strong> を押し、ウォレットでトランザクションを承認します。</li></ol>',
+            '<ol><li>Remixで <code>BaseDeployPractice</code> を選びます。</li><li>コンストラクタの値に <code>"ipfs://YOUR_METADATA_FOLDER_CID/metadata.json"</code> を入れます。</li><li><code>initialTokenURI</code> は空欄にしないでください。Gas estimation failed が出たら、まずここを確認します。</li><li><strong>Deploy</strong> を押し、ウォレットでトランザクションを承認します。</li></ol>',
           deployStep6Title: "6. mintボタンを見つけて押す",
           deployStep6Body:
             "<ol><li>デプロイ後、Remixの <strong>Deployed Contracts</strong> を開きます。</li><li><code>BASEDEPLOYPRACTICE</code> を展開します。</li><li>オレンジ色の <strong>mint</strong> ボタンを押し、ウォレットで承認します。</li></ol>",

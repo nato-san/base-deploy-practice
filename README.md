@@ -181,6 +181,8 @@ Copy the code from this project's `contracts/BaseDeployPractice.sol` file and pa
 
 ### Step 3: Compile the Contract
 
+First, click `BaseDeployPractice.sol` in the Remix File Explorer so it is open in the editor.
+
 Open the Solidity Compiler tab in Remix.
 
 Choose a compiler version that matches the contract:
@@ -206,8 +208,10 @@ Open the **Deploy & Run Transactions** tab in Remix.
 Under **Environment**, choose:
 
 ```text
-Injected Provider
+WalletConnect
 ```
+
+If **Browser Extension** works with your wallet, that is also OK. In older Remix tutorials, this may be called **Injected Provider**.
 
 Your wallet, such as Rabby or MetaMask, should ask for permission to connect.
 
@@ -225,6 +229,8 @@ Make sure Remix also shows the Base Mainnet network after you connect with Injec
 
 You need a small amount of ETH on Base Mainnet to pay the deployment gas fee.
 
+Important: if Remix shows `Remix VM`, you are only using a test network inside Remix. That is useful for practice, but it is not Base Mainnet and it will not appear on BaseScan.
+
 ### Step 6: Deploy
 
 In the Remix deployment panel, select the contract:
@@ -240,6 +246,8 @@ The constructor needs one value:
 ```
 
 Keep the quotation marks when entering a string in Remix.
+
+Do not leave `initialTokenURI` empty. If Remix shows **Gas estimation failed**, check this field first.
 
 Click **Deploy**.
 
@@ -424,7 +432,31 @@ Your wallet is not connected to Base Mainnet.
 
 Fix:
 
-Switch Rabby or MetaMask to Base Mainnet, then reconnect Remix using Injected Provider.
+Switch Rabby or MetaMask to Base Mainnet, then reconnect Remix using WalletConnect or Browser Extension.
+
+### Remix VM instead of Base Mainnet
+
+Problem:
+
+Your contract appears under `Remix VM`, so it was only deployed to Remix's test network.
+
+Fix:
+
+Use WalletConnect or Browser Extension, switch your wallet to Base Mainnet, then deploy again.
+
+### Gas estimation failed
+
+Problem:
+
+Remix shows a gas estimation warning before deployment.
+
+Fix:
+
+Make sure `initialTokenURI` is not empty. Enter a string such as:
+
+```text
+"ipfs://YOUR_METADATA_FOLDER_CID/metadata.json"
+```
 
 ### Not enough ETH for gas
 
